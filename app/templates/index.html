@@ -5,10 +5,10 @@
 <form method="post">
     <label for="youtube_url">YouTube URL:</label>
     <input type="text" id="youtube_url" name="youtube_url" placeholder="Enter a valid YouTube URL" required>
-    <button type="submit">Get Summary</button>
+    <button type="submit">Get Transcript</button>
 </form>
 {% if summary %}
-<h2>Summary:</h2>
+<h2>Transcript:</h2>
 <p>{{ summary }}</p>
 {% endif %}
 {% endblock %}
