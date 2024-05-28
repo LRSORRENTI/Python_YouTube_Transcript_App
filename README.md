@@ -74,9 +74,16 @@ Open your web browser and navigate to http://127.0.0.1:5000/.
 
 - Input a YouTube URL: Enter the URL of the YouTube video you want to get the transcript for.
 
-- Submit: Click the "Get Transcript" button.
+- Submit: Click the "Get Transcript" button. The transcript will be displayed on the page.
 
-- View Transcript: The transcript will be displayed on the page.
+- Write To .txt File: Pressing the write transcript to .txt file button will ask for a user input for the file name, then save that transcript to a .txt file
+
+- Modify .txt File: To change to line length and paragraph breakpoints, change the line_length and lines_per_paragraph arguments in the save_transcript function within routes.py
+
+```
+ formatted_transcript = format_transcript(transcript, line_length=50, lines_per_paragraph=4)
+```
+
 
 ### License
 

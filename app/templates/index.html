@@ -9,6 +9,32 @@
 </form>
 {% if summary %}
 <h2>Transcript:</h2>
+<button id="save-transcript-button">Write Transcript To .txt File</button>
 <p>{{ summary }}</p>
 {% endif %}
+{% endblock %}
+
+{% block scripts %}
+<script>
+document.getElementById('save-transcript-button').addEventListener('click', function() {
+    const filename = prompt('Please enter the filename:', 'transcript.txt');
+    if (filename) {
+        fetch('/save_transcript', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ filename: filename, transcript: {{ summary|tojson }} }),
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert('Transcript saved successfully!');
+            } else {
+                alert('Error saving transcript.');
+            }
+        });
+    }
+});
+</script>
 {% endblock %}
